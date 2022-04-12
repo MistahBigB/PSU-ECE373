@@ -1,0 +1,73 @@
+Brandon Bieschke
+ECE 373
+Spring 2022
+Hw1
+
+A) INFORMATION GATHERING
+1) Look at the man page for the "open()" sycall, found in section 2 of the manpages:
+
+man 2 open
+
+A) BUGS:
+    Currently, it is not possible to enable signal-driven I/O by specifying O_ASYNC when calling open(); use fcntl(2) to enable this flag.
+    One must check for two different error codes, EISDIR and ENOENT, when trying to determine whether the kernel supports O_TMPFILE functionality.
+    When both O_CREAT and O_DIRECTORY are specified in flags and the file specified by pathname does not exist, open() will create a regular file (i.e., O_DIRECTORY is ignored).
+
+B)  Files needed to be included:
+    the file specified by pathname (it may be created if it does not exist)
+    Any flags
+
+C) The first 3 related sycalls:
+    Not sure exactly what this refers to, as there is no section in this man marked "related." However, the first three in the SEE ALSO section are:
+    chmod
+    chown
+    close
+
+    in the Synopsis section of the manpage, the three commands listed are open, creat, and openat.
+
+D)  One of the system calls listed above, I am chosing chmod
+    BUGS: no bugs listed
+    required files: pathname, mode
+
+2) "Usb_device" is defined as a struct in "usb.h".
+
+A)  The first 5 members of the struct are:
+    int     devnum;
+    char    devpath[16];
+    u32     route;
+    enum usb_device_state   state;
+    enum usb_device_speed   speed;
+
+B)  The typedef for "Enum usb_device_speed" is in "ch9.h".
+
+C)  The entire enumeration declaration for "usb_device_speed" is:
+    enum usb_device_speed {
+    	USB_SPEED_UNKNOWN = 0,  			/* enumerating */
+    	USB_SPEED_LOW, USB_SPEED_FULL,		/* usb 1.1 */
+    	USB_SPEED_HIGH,		        		/* usb 2.0 */
+    	USB_SPEED_WIRELESS,	        		/* wireless (usb 2.5) */
+    	USB_SPEED_SUPER,	        		/* usb 3.0 */
+    	USB_SPEED_SUPER_PLUS,	    		/* usb 3.1 */
+    };
+
+
+B) BASIC LINUX USE:
+1) Logged in
+2) Found text editor
+3) Found the terminal
+4) Studied the Learning the shell
+5) Installed script
+6) Scripted commands
+7) Installed Gedit, relocated typescript to HW file
+
+C) BASIC C PROGRAMMING IN LINUX
+    Didn't have script on for the programming part, only for execution
+
+    gdb!!!
+    break <linenum>
+    break <function>
+    step with <s>
+    <c> to continue
+
+D) Hello, Kernel:
+    hello.c
